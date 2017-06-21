@@ -16,6 +16,6 @@ The files *individual_demo.m* and *group_demo.m* (see note below), available in 
 
 The group spectral mapping algorithm uses an external optimization solver, Manopt 3.0. Please download it from [manopt.org](http://manopt.org) and add it to the *ext* folder. Then, uncompress it and add all subdirectories to your Matlab path.
 
-## Suggestions for improvements
+## Feedback
 
-Please send them to brainopt@gmail.com
+We will appreciate if you send your suggestions for improvements to brainopt@gmail.com.
