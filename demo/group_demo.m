@@ -19,11 +19,11 @@ add_folders();
 load data_matrices.mat;
 
 % select the range of subjects
-idx = 1:30;
-nsubs = length(idx);
+sidxs = 15:30;
+nsubs = length(sidxs);
 
-Ss = Ss(idx); %#ok<*NODEF,*USENS>
-Fs = Fs(idx);
+Ss = Ss(sidxs); %#ok<*NODEF,*USENS>
+Fs = Fs(sidxs);
 
 % performs the mapping considering powers k ranging from kmin to kmax
 kmin = 0;
@@ -52,14 +52,17 @@ for i=1:nks
         F_hat  = group_predict(S,c{i},Q{i});
         
         % evaluate correlation
-        rhos(j,i) = matcorr(F,F_hat); %#ok<*AGROW>
+        rhos(j,i) = smcorr(F,F_hat); %#ok<*AGROW>
         
     end
 
     % finds the subject with median correlation
     rhosk = rhos(:,i);
-    [~,idx] = sort(rhosk,'ascend');
-    midx = idx(ceil(length(idx)/2));
+    [~,aidx] = sort(rhosk,'ascend');
+    % median in the sample
+    midx = aidx(ceil(length(aidx)/2));
+    % subject index
+    sidx = sidxs(midx);
     
     % matrices of the subject with median correlation
     F_m = Fs{midx};
@@ -67,7 +70,7 @@ for i=1:nks
     F_hat_m = group_predict(S_m, c{i}, Q{i});
     
     % plots approximation qualtiy
-    h = plot_group(S_m,F_m,F_hat_m,rhos,ks,k,midx,h);
+    h = plot_group(S_m,F_m,F_hat_m,rhos,ks,k,sidx,h);
     
 end
 

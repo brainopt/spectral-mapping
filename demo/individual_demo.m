@@ -46,7 +46,7 @@ for i=1:nks
     F_hat = individual_predict(S,a,R);
     
     % evaluate correlation     
-    rhos(i) = matcorr(F,F_hat);
+    rhos(i) = smcorr(F,F_hat);
     
     % plots approximation quality
     h = plot_individual(S,F,F_hat,rhos,k,ks,sidx,h);

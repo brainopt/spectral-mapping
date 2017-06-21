@@ -28,7 +28,7 @@ plot(ks(1):k,mean(rhos) - std(rhos),'o:r','Linewidth',2);
 grid on;
 ylim([0 1.05]);
 xlim([ks(1) ks(end)]);
-set(gca,'XTick',ks(1):ks(end));
+set(gca,'XTick',ks(1):k);
 legend({'mean','mean+std','mean-std'},'location','southeast');
 xlabel('max walk length, k');
 ylabel('Functional correlation quality');
@@ -45,7 +45,7 @@ title('Approx. F (median subj.)');
 xlabel('region');
 ylabel('region');
 
-rhosk = matcorr(F,F_hat);
+rhosk = smcorr(F,F_hat);
 
 ha = findall(gcf,'Tag','scribeOverlay');
 if ~isempty(ha)
@@ -58,7 +58,7 @@ annotation(gcf,'textbox',[0 0 1 1],'String',stitstr, ...
     'Fontsize',13,'LineStyle','none', ...
     'HorizontalAlignment','center','VerticalAlignment','top','Interpreter', 'none');
 
-utitstr = sprintf('k = %d, median subj. id = %d,  correlation = %1.3f',k,midx,rhosk);
+utitstr = sprintf('k = %d, median subj. id = %d,  off-diag correlation = %1.3f',k,midx,rhosk);
 
 annotation(gcf,'textbox',[0 0 1 1],'String',utitstr, ...
     'Fontsize',13,'LineStyle','none', ...
