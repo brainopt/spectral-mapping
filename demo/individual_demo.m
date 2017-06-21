@@ -23,9 +23,6 @@ sidx = 1;
 S = Ss{sidx}; 
 F = Fs{sidx};
 
-% number of regions in the matrices
-n = size(S,2);
-
 % performs the mapping considering powers k ranging from kmin to kmax
 
 kmin = 0;
