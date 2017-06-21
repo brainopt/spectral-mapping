@@ -10,7 +10,7 @@ The code is written in Matlab, tested in Release 2016b.
 
 ## Demos
 
-The files *individual_demo.m* and *group_demo.m* (see note below), available in the *demo* folder, illustrate the use of the algorithms to generate a spectral mapping from structural to functional brain connectivity data.
+The files *individual_demo.m* and *group_demo.m* (see note below) illustrate the use of the algorithms to generate spectral mappings from structural to functional brain connectivity data. They are available in the *demo* folder.
 
 ## External dependencies
 
