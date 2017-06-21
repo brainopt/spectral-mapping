@@ -1,0 +1,2 @@
+Please download Manopt 3.0 from 'http://manopt.org' onto this directory.
+Uncompress it, and add all subdirectories to your Matlab path.
